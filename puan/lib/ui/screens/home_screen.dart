@@ -8,14 +8,36 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              "Ponto Eletrônico",
+              style: TextStyle(
+                  decoration: TextDecoration.none,
+                  fontFamily: 'Raleway',
+                  fontSize: 40,
+                  color: Colors.red[300]),
+            ),
             Container(
-              color: Colors.white,
+              height: 520,
               child: Padding(
-                  padding: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Stack(
                     alignment: Alignment.center,
                     children: <Widget>[
-                      Text("INICIAR"),
+                      Container(
+                        child: Icon(
+                          Icons.play_arrow_rounded,
+                          color: Colors.red[100],
+                          size: 400.0,
+                        ),
+                      ),
+                      Text(
+                        "Iniciar",
+                        style: TextStyle(
+                            decoration: TextDecoration.none,
+                            fontFamily: 'Raleway',
+                            fontSize: 80,
+                            color: Colors.red[300]),
+                      ),
                       Container(
                         child: CustomPaint(painter: FaceOutlinePainter()),
                       )
@@ -33,7 +55,7 @@ class FaceOutlinePainter extends CustomPainter {
     // Define a paint object
     final paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 10.0
+      ..strokeWidth = 5.0
       ..strokeCap = StrokeCap.round
       ..color = Colors.red[100];
 
@@ -334,12 +356,35 @@ class FaceOutlinePainter extends CustomPainter {
 
     final tamanhoRelogio = 200;
     final tamanhoSetaRelogio = tamanhoRelogio - 20;
-    final intervalo = 10;
+    final intervalo = 6;
+
+    if (1 == 1) {
+      final p1 = Offset(Seno[90] * 170, Cosseno[90] * 170);
+      final p2 = Offset(Seno[90] * 210, Cosseno[90] * 210);
+      canvas.drawLine(p1, p2, paint);
+    }
+
+    if (1 == 1) {
+      final p1 = Offset(Seno[0] * 170, Cosseno[0] * 170);
+      final p2 = Offset(Seno[0] * 210, Cosseno[0] * 210);
+      canvas.drawLine(p1, p2, paint);
+    }
+    if (1 == 1) {
+      final p1 = Offset((Seno[0] * -1) * 170, (Cosseno[0] * -1) * 170);
+      final p2 = Offset((Seno[0] * -1) * 210, (Cosseno[0] * -1) * 210);
+      canvas.drawLine(p1, p2, paint);
+    }
+
+    if (1 == 1) {
+      final p1 = Offset((Seno[90] * -1) * 170, (Cosseno[90] * -1) * 170);
+      final p2 = Offset((Seno[90] * -1) * 210, (Cosseno[90] * -1) * 210);
+      canvas.drawLine(p1, p2, paint);
+    }
 
     for (var i = 0; i < Seno.length; i = i + intervalo) {
-      final p1 = Offset(Seno[i] * tamanhoSetaRelogio, Cosseno[i] * tamanhoSetaRelogio);
+      final p1 =
+          Offset(Seno[i] * tamanhoSetaRelogio, Cosseno[i] * tamanhoSetaRelogio);
       final p2 = Offset(Seno[i] * tamanhoRelogio, Cosseno[i] * tamanhoRelogio);
-      print("valor: " + i.toString());
       canvas.drawLine(p1, p2, paint);
     }
 
