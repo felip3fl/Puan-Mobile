@@ -1,51 +1,119 @@
 import 'package:flutter/material.dart';
+import 'package:decorated_icon/decorated_icon.dart';
 
 class HomeScreen extends StatelessWidget {
+  var cor1 = Color.fromARGB(255, 239, 242, 247);
+  var cor2 = Color.fromARGB(255, 255, 255, 255);
+  var fonteTitulo = Color.fromARGB(150, 0, 0, 0);
+  var fonteBotaoRelogio = Color.fromARGB(150, 0, 0, 0);
+  var bordaBotaoPlay1 = Color.fromARGB(60, 0, 0, 0);
+  var bordaBotaoPlay2 = Color.fromARGB(60, 0, 0, 0);
+  var botaoPlay = Color.fromARGB(255, 255, 255, 255);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Ponto Eletrônico",
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontFamily: 'Raleway',
-                  fontSize: 40,
-                  color: Colors.red[300]),
-            ),
-            Container(
-              height: 520,
-              child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: Icon(
-                          Icons.play_arrow_rounded,
-                          color: Colors.red[100],
-                          size: 400.0,
-                        ),
+      color: cor1,
+      child: Padding(
+          padding: EdgeInsets.fromLTRB(20,60,20,0),
+          child: Column(
+            children: <Widget>[
+              Container(
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.15),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(5, 5), // changes position of shadow
+                          ),
+                        ],
+                        color: Color.fromARGB(255, 255, 191, 0),
+                        borderRadius: BorderRadius.all(Radius.circular(
+                                40.0) //         <--- border radius here
+                            ),
                       ),
-                      Text(
-                        "Iniciar",
-                        style: TextStyle(
+                      width: 100,
+                      height: 100,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "Bem-Vindo",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
                             decoration: TextDecoration.none,
                             fontFamily: 'Raleway',
-                            fontSize: 80,
-                            color: Colors.red[300]),
-                      ),
-                      Container(
-                        child: CustomPaint(painter: FaceOutlinePainter()),
-                      )
-                    ],
-                  )),
-            )
-          ],
-        ));
+                            fontSize: 30,
+                            color: fonteTitulo,
+                          ),
+                        ),
+                        Text(
+                          "Felipe Lima",
+                          style: TextStyle(
+                              decoration: TextDecoration.none,
+                              fontFamily: 'Raleway',
+                              fontSize: 40,
+                              color: fonteTitulo),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Text(
+                "Ponto Eletrônico",
+                style: TextStyle(
+                    decoration: TextDecoration.none,
+                    fontFamily: 'Raleway',
+                    fontSize: 40,
+                    color: fonteTitulo),
+              ),
+              Container(
+                height: 520,
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        Container(
+                          child: DecoratedIcon(
+                            Icons.play_arrow_rounded,
+                            color: botaoPlay,
+                            size: 390.0,
+                            shadows: [
+                              BoxShadow(
+                                blurRadius: 30.0,
+                                color: bordaBotaoPlay1,
+                              ),
+                              BoxShadow(
+                                blurRadius: 30.0,
+                                color: bordaBotaoPlay2,
+                                offset: Offset(0, 0.0),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Text(
+                          "Iniciar",
+                          style: TextStyle(
+                              decoration: TextDecoration.none,
+                              fontFamily: 'Raleway',
+                              fontSize: 70,
+                              color: fonteBotaoRelogio),
+                        ),
+                        Container(
+                          child: CustomPaint(painter: FaceOutlinePainter()),
+                        )
+                      ],
+                    )),
+              )
+            ],
+          )),
+    );
   }
 }
 
@@ -55,118 +123,9 @@ class FaceOutlinePainter extends CustomPainter {
     // Define a paint object
     final paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 5.0
+      ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round
-      ..color = Colors.red[100];
-
-    final paintBlue = Paint()
-      ..style = PaintingStyle.fill
-      ..strokeWidth = 10.0
-      ..strokeCap = StrokeCap.round
-      ..color = Colors.blue;
-
-    // // Left eye
-    // canvas.drawRRect(
-    //   RRect.fromRectAndRadius(Rect.fromLTWH( 0, 100, 100), Radius.circular(20)),
-    //   paint,
-    // );
-    //
-
-    // canvas.drawOval(
-    //   Rect.fromLTWH(-230, -230, 460, 460),
-    //   paintBlue,
-    // );
-
-    var Tangente = new List<double>();
-    Tangente.add(0.0175);
-    Tangente.add(0.0349);
-    Tangente.add(0.0524);
-    Tangente.add(0.0699);
-    Tangente.add(0.0875);
-    Tangente.add(0.1051);
-    Tangente.add(0.1228);
-    Tangente.add(0.1405);
-    Tangente.add(0.1584);
-    Tangente.add(0.1763);
-    Tangente.add(0.1944);
-    Tangente.add(0.2126);
-    Tangente.add(0.2309);
-    Tangente.add(0.2493);
-    Tangente.add(0.2679);
-    Tangente.add(0.2867);
-    Tangente.add(0.3057);
-    Tangente.add(0.3249);
-    Tangente.add(0.3443);
-    Tangente.add(0.364);
-    Tangente.add(0.3839);
-    Tangente.add(0.404);
-    Tangente.add(0.4245);
-    Tangente.add(0.4452);
-    Tangente.add(0.4663);
-    Tangente.add(0.4877);
-    Tangente.add(0.5095);
-    Tangente.add(0.5317);
-    Tangente.add(0.5543);
-    Tangente.add(0.5774);
-    Tangente.add(0.6009);
-    Tangente.add(0.6249);
-    Tangente.add(0.6494);
-    Tangente.add(0.6745);
-    Tangente.add(0.7002);
-    Tangente.add(0.7265);
-    Tangente.add(0.7536);
-    Tangente.add(0.7813);
-    Tangente.add(0.8098);
-    Tangente.add(0.8391);
-    Tangente.add(0.8693);
-    Tangente.add(0.9004);
-    Tangente.add(0.9325);
-    Tangente.add(0.9657);
-    Tangente.add(1);
-    Tangente.add(1.0355);
-    Tangente.add(1.0724);
-    Tangente.add(1.1106);
-    Tangente.add(1.1504);
-    Tangente.add(1.1918);
-    Tangente.add(1.2349);
-    Tangente.add(1.2799);
-    Tangente.add(1.327);
-    Tangente.add(1.3764);
-    Tangente.add(1.4281);
-    Tangente.add(1.4826);
-    Tangente.add(1.5399);
-    Tangente.add(1.6003);
-    Tangente.add(1.6643);
-    Tangente.add(1.7321);
-    Tangente.add(1.804);
-    Tangente.add(1.8807);
-    Tangente.add(1.9626);
-    Tangente.add(2.0503);
-    Tangente.add(2.1445);
-    Tangente.add(2.246);
-    Tangente.add(2.3559);
-    Tangente.add(2.4751);
-    Tangente.add(2.6051);
-    Tangente.add(2.7475);
-    Tangente.add(2.9042);
-    Tangente.add(3.0777);
-    Tangente.add(3.2709);
-    Tangente.add(3.4874);
-    Tangente.add(3.7321);
-    Tangente.add(4.0108);
-    Tangente.add(4.3315);
-    Tangente.add(4.7046);
-    Tangente.add(5.1446);
-    Tangente.add(5.6713);
-    Tangente.add(6.3138);
-    Tangente.add(7.1154);
-    Tangente.add(8.1443);
-    Tangente.add(9.5144);
-    Tangente.add(11.4301);
-    Tangente.add(14.3007);
-    Tangente.add(19.0811);
-    Tangente.add(28.6363);
-    Tangente.add(57.29);
+      ..color = Color.fromARGB(255, 200, 200, 200);
 
     var Cosseno = new List<double>();
     Cosseno.add(1);
@@ -354,30 +313,40 @@ class FaceOutlinePainter extends CustomPainter {
     Seno.add(0.9998);
     Seno.add(1);
 
-    final tamanhoRelogio = 200;
-    final tamanhoSetaRelogio = tamanhoRelogio - 20;
+    final tamanhoRelogio = 170;
+    final tamanhoSetaRelogio = tamanhoRelogio - 15;
+    final tamanhoSetaRelogio2 = tamanhoRelogio - 20;
+    final tamanhoSetaRelogio3 = tamanhoRelogio + 5;
     final intervalo = 6;
 
     if (1 == 1) {
-      final p1 = Offset(Seno[90] * 170, Cosseno[90] * 170);
-      final p2 = Offset(Seno[90] * 210, Cosseno[90] * 210);
+      final p1 = Offset(
+          Seno[90] * tamanhoSetaRelogio2, Cosseno[90] * tamanhoSetaRelogio2);
+      final p2 = Offset(
+          Seno[90] * tamanhoSetaRelogio3, Cosseno[90] * tamanhoSetaRelogio3);
       canvas.drawLine(p1, p2, paint);
     }
 
     if (1 == 1) {
-      final p1 = Offset(Seno[0] * 170, Cosseno[0] * 170);
-      final p2 = Offset(Seno[0] * 210, Cosseno[0] * 210);
+      final p1 = Offset(
+          Seno[0] * tamanhoSetaRelogio2, Cosseno[0] * tamanhoSetaRelogio2);
+      final p2 = Offset(
+          Seno[0] * tamanhoSetaRelogio3, Cosseno[0] * tamanhoSetaRelogio3);
       canvas.drawLine(p1, p2, paint);
     }
     if (1 == 1) {
-      final p1 = Offset((Seno[0] * -1) * 170, (Cosseno[0] * -1) * 170);
-      final p2 = Offset((Seno[0] * -1) * 210, (Cosseno[0] * -1) * 210);
+      final p1 = Offset((Seno[0] * -1) * tamanhoSetaRelogio2,
+          (Cosseno[0] * -1) * tamanhoSetaRelogio2);
+      final p2 = Offset((Seno[0] * -1) * tamanhoSetaRelogio3,
+          (Cosseno[0] * -1) * tamanhoSetaRelogio3);
       canvas.drawLine(p1, p2, paint);
     }
 
     if (1 == 1) {
-      final p1 = Offset((Seno[90] * -1) * 170, (Cosseno[90] * -1) * 170);
-      final p2 = Offset((Seno[90] * -1) * 210, (Cosseno[90] * -1) * 210);
+      final p1 = Offset((Seno[90] * -1) * tamanhoSetaRelogio2,
+          (Cosseno[90] * -1) * tamanhoSetaRelogio2);
+      final p2 = Offset((Seno[90] * -1) * tamanhoSetaRelogio3,
+          (Cosseno[90] * -1) * tamanhoSetaRelogio3);
       canvas.drawLine(p1, p2, paint);
     }
 
