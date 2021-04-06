@@ -15,63 +15,75 @@ class HomeScreen extends StatelessWidget {
     return Container(
       color: cor1,
       child: Padding(
-          padding: EdgeInsets.fromLTRB(20,60,20,0),
+          padding: EdgeInsets.fromLTRB(30, 56, 30, 0),
           child: Column(
             children: <Widget>[
               Container(
                 child: Row(
                   children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.15),
-                            spreadRadius: 1,
-                            blurRadius: 7,
-                            offset: Offset(5, 5), // changes position of shadow
-                          ),
-                        ],
-                        color: Color.fromARGB(255, 255, 191, 0),
-                        borderRadius: BorderRadius.all(Radius.circular(
-                                40.0) //         <--- border radius here
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.10),
+                              spreadRadius: 1,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(5, 5), // changes position of shadow
                             ),
+                          ],
+                          color: Color.fromARGB(255, 255, 191, 0),
+                          borderRadius: BorderRadius.all(Radius.circular(
+                                  27.0) //         <--- border radius here
+                              ),
+                        ),
+                        width: 70,
+                        height: 70,
                       ),
-                      width: 100,
-                      height: 100,
                     ),
                     Column(
                       children: [
-                        Text(
-                          "Bem-Vindo",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            decoration: TextDecoration.none,
-                            fontFamily: 'Raleway',
-                            fontSize: 30,
-                            color: fonteTitulo,
-                          ),
-                        ),
-                        Text(
-                          "Felipe Lima",
-                          style: TextStyle(
+                        Container(
+                          width: 200,
+                          child: Text(
+                            "Bem-Vindo",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
                               decoration: TextDecoration.none,
                               fontFamily: 'Raleway',
-                              fontSize: 40,
-                              color: fonteTitulo),
+                              fontSize: 20,
+                              color: fonteTitulo,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 200,
+                          child: Text(
+                            "Felipe Lima",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontFamily: 'Raleway',
+                                fontSize: 30,
+                                color: fonteTitulo),
+                          ),
                         ),
                       ],
                     )
                   ],
                 ),
               ),
-              Text(
+              Padding(padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+              child: Text(
                 "Ponto Eletrônico",
                 style: TextStyle(
                     decoration: TextDecoration.none,
                     fontFamily: 'Raleway',
-                    fontSize: 40,
+                    fontSize: 36,
                     color: fonteTitulo),
-              ),
+              ),),
               Container(
                 height: 520,
                 child: Padding(
@@ -107,15 +119,39 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Container(
                           child: CustomPaint(painter: FaceOutlinePainter()),
-                        )
+                        ),
+                                                
                       ],
                     )),
-              )
+              ),
             ],
           )),
     );
   }
 }
+
+class FaceCisculo extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    // Define a paint object
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 3.0
+      ..strokeCap = StrokeCap.round
+      ..color = Colors.white;
+
+
+    // Right eye
+    canvas.drawCircle(
+      Offset(0, 0), 100, paint
+    );
+  }
+
+  @override
+  bool shouldRepaint(FaceOutlinePainter oldDelegate) => false;
+}
+
+
 
 class FaceOutlinePainter extends CustomPainter {
   @override
