@@ -1,132 +1,195 @@
 import 'package:flutter/material.dart';
 import 'package:decorated_icon/decorated_icon.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatelessWidget {
   var cor1 = Color.fromARGB(255, 239, 242, 247);
   var cor2 = Color.fromARGB(255, 255, 255, 255);
   var fonteTitulo = Color.fromARGB(150, 0, 0, 0);
   var fonteBotaoRelogio = Color.fromARGB(150, 0, 0, 0);
-  var bordaBotaoPlay1 = Color.fromARGB(60, 0, 0, 0);
-  var bordaBotaoPlay2 = Color.fromARGB(60, 0, 0, 0);
-  var botaoPlay = Color.fromARGB(255, 255, 255, 255);
+  var bordaBotaoPlay1 = Color.fromARGB(30, 0, 0, 0);
+  var bordaBotaoPlay2 = Color.fromARGB(30, 0, 0, 0);
+  var botaoPlay = Color.fromARGB(255, 239, 242, 247);
+
+  HomeScreen() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Color.fromARGB(255, 239, 242, 247),
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: cor1,
-      child: Padding(
-          padding: EdgeInsets.fromLTRB(30, 56, 30, 0),
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.10),
-                              spreadRadius: 1,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(5, 5), // changes position of shadow
-                            ),
-                          ],
-                          color: Color.fromARGB(255, 255, 191, 0),
-                          borderRadius: BorderRadius.all(Radius.circular(
-                                  27.0) //         <--- border radius here
-                              ),
-                        ),
-                        width: 70,
-                        height: 70,
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                          width: 200,
-                          child: Text(
-                            "Bem-Vindo",
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontFamily: 'Raleway',
-                              fontSize: 20,
-                              color: fonteTitulo,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 200,
-                          child: Text(
-                            "Felipe Lima",
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                decoration: TextDecoration.none,
-                                fontFamily: 'Raleway',
-                                fontSize: 30,
-                                color: fonteTitulo),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
-              child: Text(
-                "Ponto Eletrônico",
-                style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontFamily: 'Raleway',
-                    fontSize: 36,
-                    color: fonteTitulo),
-              ),),
-              Container(
-                height: 520,
-                child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: <Widget>[
-                        Container(
-                          child: DecoratedIcon(
-                            Icons.play_arrow_rounded,
-                            color: botaoPlay,
-                            size: 390.0,
-                            shadows: [
+        color: cor1,
+        child: Column(children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 55, 30, 0),
+            child: Column(
+              children: <Widget>[
+                // Container(
+                //   child: CustomPaint(painter: FaceCisculo()),
+                // ),
+                // Container(
+                //   child: CustomPaint(painter: FaceCisculo2()),
+                // ),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
                               BoxShadow(
-                                blurRadius: 30.0,
-                                color: bordaBotaoPlay1,
-                              ),
-                              BoxShadow(
-                                blurRadius: 30.0,
-                                color: bordaBotaoPlay2,
-                                offset: Offset(0, 0.0),
+                                color: Colors.black.withOpacity(0.10),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(5, 5), // changes position of shadow
                               ),
                             ],
+                            color: Color.fromARGB(255, 255, 191, 0),
+                            borderRadius: BorderRadius.all(Radius.circular(
+                                    27.0) //         <--- border radius here
+                                ),
                           ),
+                          width: 70,
+                          height: 70,
                         ),
-                        Text(
-                          "Iniciar",
-                          style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontFamily: 'Raleway',
-                              fontSize: 70,
-                              color: fonteBotaoRelogio),
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 200,
+                            child: Text(
+                              "Bem-Vindo",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontFamily: 'WorkSans-Thin',
+                                fontSize: 20,
+                                color: fonteTitulo,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              "Felipe Lima",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  fontFamily: 'WorkSans-Light',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  color: fonteTitulo),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        child: Icon(
+                          Icons.more_vert,
+                          color: fonteTitulo,
+                          size: 30.0,
+                          semanticLabel: 'Menu',
                         ),
-                        Container(
-                          child: CustomPaint(painter: FaceOutlinePainter()),
-                        ),
-                                                
-                      ],
-                    )),
-              ),
-            ],
-          )),
-    );
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                  child: Text(
+                    "Ponto Eletrônico",
+                    style: TextStyle(
+                        decoration: TextDecoration.none,
+                        fontFamily: 'WorkSans-Thin',
+                        fontSize: 36,
+                        color: fonteTitulo),
+                  ),
+                ),
+                Container(
+                  height: 460,
+                  child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: <Widget>[
+                          Container(
+                            child: DecoratedIcon(
+                              Icons.play_arrow_rounded,
+                              color: botaoPlay,
+                              size: 390.0,
+                              shadows: [
+                                BoxShadow(
+                                  blurRadius: 30.0,
+                                  color: bordaBotaoPlay1,
+                                ),
+                                BoxShadow(
+                                  blurRadius: 30.0,
+                                  color: bordaBotaoPlay2,
+                                  offset: Offset(0, 0.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            "Iniciar",
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontFamily: 'WorkSans-Thin',
+                                fontSize: 70,
+                                color: fonteBotaoRelogio),
+                          ),
+                          Container(
+                            child: CustomPaint(painter: FaceRelogio()),
+                          ),
+                        ],
+                      )),
+                ),
+                Text(
+                  "Inicio: 08:10",
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontFamily: 'WorkSans-Thin',
+                      fontSize: 36,
+                      color: fonteBotaoRelogio),
+                ),
+                Text(
+                  "Fim: 08:10",
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontFamily: 'WorkSans-Thin',
+                      fontSize: 36,
+                      color: fonteBotaoRelogio),
+                ),
+              ],
+            ),
+          ),
+          Spacer(),
+          // BottomNavigationBar(
+          //     fixedColor: Colors.black,
+          //     backgroundColor: cor1,
+          //     items: [
+          //       BottomNavigationBarItem(
+          //           icon: Icon(Icons.home),
+          //           title: Text('Rélogio'),
+          //           backgroundColor: Colors.red),
+          //       BottomNavigationBarItem(
+          //           icon: Icon(Icons.lightbulb),
+          //           title: Text('Menu 1'),
+          //           backgroundColor: Colors.red),
+          //       BottomNavigationBarItem(
+          //           icon: Icon(Icons.settings),
+          //           title: Text('Config'),
+          //           backgroundColor: Colors.red)
+          //     ])
+        ]));
   }
 }
 
@@ -138,22 +201,35 @@ class FaceCisculo extends CustomPainter {
       ..style = PaintingStyle.fill
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round
-      ..color = Colors.white;
-
+      ..color = Color.fromARGB(180, 255, 255, 255);
 
     // Right eye
-    canvas.drawCircle(
-      Offset(0, 0), 100, paint
-    );
+    canvas.drawCircle(Offset(-360, -70), 300, paint);
   }
 
   @override
-  bool shouldRepaint(FaceOutlinePainter oldDelegate) => false;
+  bool shouldRepaint(FaceRelogio oldDelegate) => false;
 }
 
+class FaceCisculo2 extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    // Define a paint object
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 3.0
+      ..strokeCap = StrokeCap.round
+      ..color = Color.fromARGB(180, 255, 255, 255);
 
+    // Right eye
+    canvas.drawCircle(Offset(500, 510), 390, paint);
+  }
 
-class FaceOutlinePainter extends CustomPainter {
+  @override
+  bool shouldRepaint(FaceRelogio oldDelegate) => false;
+}
+
+class FaceRelogio extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     // Define a paint object
@@ -162,6 +238,12 @@ class FaceOutlinePainter extends CustomPainter {
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round
       ..color = Color.fromARGB(255, 200, 200, 200);
+
+    final paint2 = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3.0
+      ..strokeCap = StrokeCap.round
+      ..color = Color.fromARGB(255, 0, 0, 0);
 
     var Cosseno = new List<double>();
     Cosseno.add(1);
@@ -349,11 +431,42 @@ class FaceOutlinePainter extends CustomPainter {
     Seno.add(0.9998);
     Seno.add(1);
 
-    final tamanhoRelogio = 170;
+    final tamanhoRelogio = 165;
     final tamanhoSetaRelogio = tamanhoRelogio - 15;
     final tamanhoSetaRelogio2 = tamanhoRelogio - 20;
     final tamanhoSetaRelogio3 = tamanhoRelogio + 5;
     final intervalo = 6;
+
+    for (var i = 0; i < Seno.length; i = i + intervalo) {
+      final p1 = Offset((Seno[i]) * tamanhoSetaRelogio,
+          (Cosseno[i] * -1) * tamanhoSetaRelogio); //Offset(Y, X);
+      final p2 = Offset((Seno[i]) * tamanhoRelogio,
+          (Cosseno[i] * -1) * tamanhoRelogio); //Offset(W, H);
+      canvas.drawLine(p1, p2, paint2);
+    }
+
+    for (var i = 0; i < Seno.length; i = i + intervalo) {
+      final p1 =
+          Offset(Seno[i] * tamanhoSetaRelogio, Cosseno[i] * tamanhoSetaRelogio);
+      final p2 = Offset(Seno[i] * tamanhoRelogio, Cosseno[i] * tamanhoRelogio);
+      canvas.drawLine(p1, p2, paint);
+    }
+
+    for (var i = 0; i < Seno.length; i = i + intervalo) {
+      final p1 = Offset((Seno[i] * -1) * tamanhoSetaRelogio,
+          (Cosseno[i] * -1) * tamanhoSetaRelogio); //Offset(Y, X);
+      final p2 = Offset((Seno[i] * -1) * tamanhoRelogio,
+          (Cosseno[i] * -1) * tamanhoRelogio); //Offset(W, H);
+      canvas.drawLine(p1, p2, paint);
+    }
+
+    for (var i = 0; i < Seno.length; i = i + intervalo) {
+      final p1 = Offset((Seno[i] * -1) * tamanhoSetaRelogio,
+          (Cosseno[i]) * tamanhoSetaRelogio); //Offset(Y, X);
+      final p2 = Offset((Seno[i] * -1) * tamanhoRelogio,
+          (Cosseno[i]) * tamanhoRelogio); //Offset(W, H);
+      canvas.drawLine(p1, p2, paint);
+    }
 
     if (1 == 1) {
       final p1 = Offset(
@@ -375,7 +488,7 @@ class FaceOutlinePainter extends CustomPainter {
           (Cosseno[0] * -1) * tamanhoSetaRelogio2);
       final p2 = Offset((Seno[0] * -1) * tamanhoSetaRelogio3,
           (Cosseno[0] * -1) * tamanhoSetaRelogio3);
-      canvas.drawLine(p1, p2, paint);
+      canvas.drawLine(p1, p2, paint2);
     }
 
     if (1 == 1) {
@@ -385,83 +498,8 @@ class FaceOutlinePainter extends CustomPainter {
           (Cosseno[90] * -1) * tamanhoSetaRelogio3);
       canvas.drawLine(p1, p2, paint);
     }
-
-    for (var i = 0; i < Seno.length; i = i + intervalo) {
-      final p1 =
-          Offset(Seno[i] * tamanhoSetaRelogio, Cosseno[i] * tamanhoSetaRelogio);
-      final p2 = Offset(Seno[i] * tamanhoRelogio, Cosseno[i] * tamanhoRelogio);
-      canvas.drawLine(p1, p2, paint);
-    }
-
-    for (var i = 0; i < Seno.length; i = i + intervalo) {
-      final p1 = Offset((Seno[i] * -1) * tamanhoSetaRelogio,
-          (Cosseno[i] * -1) * tamanhoSetaRelogio); //Offset(Y, X);
-      final p2 = Offset((Seno[i] * -1) * tamanhoRelogio,
-          (Cosseno[i] * -1) * tamanhoRelogio); //Offset(W, H);
-      canvas.drawLine(p1, p2, paint);
-    }
-
-    for (var i = 0; i < Seno.length; i = i + intervalo) {
-      final p1 = Offset((Seno[i]) * tamanhoSetaRelogio,
-          (Cosseno[i] * -1) * tamanhoSetaRelogio); //Offset(Y, X);
-      final p2 = Offset((Seno[i]) * tamanhoRelogio,
-          (Cosseno[i] * -1) * tamanhoRelogio); //Offset(W, H);
-      canvas.drawLine(p1, p2, paint);
-    }
-
-    for (var i = 0; i < Seno.length; i = i + intervalo) {
-      final p1 = Offset((Seno[i] * -1) * tamanhoSetaRelogio,
-          (Cosseno[i]) * tamanhoSetaRelogio); //Offset(Y, X);
-      final p2 = Offset((Seno[i] * -1) * tamanhoRelogio,
-          (Cosseno[i]) * tamanhoRelogio); //Offset(W, H);
-      canvas.drawLine(p1, p2, paint);
-    }
-
-    // for (var i = 0; i < Tangente.length; i+=10) {
-    //       final p1 = Offset(0, 0);
-    //       final p2 = Offset(Tangente[i]*-1000,-1000);
-    //       canvas.drawLine(p1,p2, paint);
-    // }
-
-    // for (var i = 0; i < Tangente.length; i+=10) {
-    //       final p1 = Offset(0, 0);
-    //       final p2 = Offset((Tangente[i]*-1)*1000,1000);
-    //       canvas.drawLine(p1,p2, paint);
-    // }
-
-    //   for (var i = 0; i < Tangente.length; i+=10) {
-    //       final p1 = Offset(0, 0);
-    //       final p2 = Offset(1000,(Tangente[i]*-1)*1000);
-    //       canvas.drawLine(p1,p2, paint);
-    // }
-
-    // final p4 = Offset( 0);
-    // final p5 = Offset(699, 1000);
-    //  canvas.drawLine(p4,p5, paint);
-
-    // // Right eye
-    // canvas.drawOval(
-    //   Rect.fromLTWH(- 120, 0, 100, 100),
-    //   paint,
-    // );
-    // // Mouth
-    // final mouth = Path();
-    // mouth.moveTo(size.width * 0.8, size.height * 0.6);
-
-    // mouth.arcToPoint(
-    //   Offset(size.width * 0.2, size.height * 0.6),
-    //   radius: Radius.circular(150),
-    // );
-
-    // mouth.arcToPoint(
-    //   Offset(size.width * 0.8, size.height * 0.6),
-    //   radius: Radius.circular(200),
-    //   clockwise: false,
-    // );
-
-    // canvas.drawPath(mouth, paint);
   }
 
   @override
-  bool shouldRepaint(FaceOutlinePainter oldDelegate) => false;
+  bool shouldRepaint(FaceRelogio oldDelegate) => false;
 }

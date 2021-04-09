@@ -82,6 +82,12 @@ flutter:
     - family: Raleway
       fonts:
         - asset: fonts/Raleway-Thin.ttf
+    - family: WorkSans-Thin
+      fonts:
+        - asset: fonts/WorkSans-Thin.ttf
+    - family: WorkSans-Light
+      fonts:
+        - asset: fonts/WorkSans-Light.ttf
         
         
           
