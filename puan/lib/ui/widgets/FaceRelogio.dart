@@ -3,6 +3,7 @@ import 'package:puan/datas/Cosseno.dart';
 import 'package:puan/datas/Seno.dart';
 
 class FaceRelogio extends CustomPainter {
+
   var _porcentagem = 0;
   var _porcentagemTemp = 0.0;
 
@@ -11,7 +12,7 @@ class FaceRelogio extends CustomPainter {
   }
 
   @override
-  void paint(Canvas canvas, Size size) {
+  void paint(Canvas canvas, Size size)  {
 
     final estiloNormal = Paint()
       ..style = PaintingStyle.stroke
@@ -44,8 +45,6 @@ class FaceRelogio extends CustomPainter {
       canvas.drawLine(p1, p2, valor ? estiloNormal : estiloMarcado);
     }
 
-
-
     //25-50
     _porcentagemTemp = _porcentagem > 25 ? ((100 / 25) * (_porcentagem-25)) : 0; 
     for (var i = intervalo; i < seno.values.length; i = i + intervalo) {
@@ -77,8 +76,7 @@ class FaceRelogio extends CustomPainter {
       canvas.drawLine(p1, p2, valor ?  estiloNormal : estiloMarcado);
     }
 
-
-        canvas.drawLine(
+      canvas.drawLine(
       Offset((seno.values[0] * -1) * tamanhoSetaRelogio2, (cosseno.values[0] * -1) * tamanhoSetaRelogio2), 
       Offset((seno.values[0] * -1) * tamanhoSetaRelogio3, (cosseno.values[0] * -1) * tamanhoSetaRelogio3), 
       _porcentagem > 0 ? estiloMarcado : estiloNormal);
@@ -101,5 +99,5 @@ class FaceRelogio extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(FaceRelogio oldDelegate) => false;
+  bool shouldRepaint(FaceRelogio oldDelegate) => true;
 }

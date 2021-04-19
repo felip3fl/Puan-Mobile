@@ -3,7 +3,12 @@ import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/services.dart';
 import 'package:puan/ui/widgets/FaceRelogio.dart';
 
-class HomeScreen extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  HomeScreen createState() => HomeScreen();
+}
+
+class HomeScreen extends State<Home> {
   var cor1 = Color.fromARGB(255, 239, 242, 247);
   var cor2 = Color.fromARGB(255, 255, 255, 255);
   var fonteTitulo = Color.fromARGB(150, 0, 0, 0);
@@ -11,6 +16,21 @@ class HomeScreen extends StatelessWidget {
   var bordaBotaoPlay1 = Color.fromARGB(30, 0, 0, 0);
   var bordaBotaoPlay2 = Color.fromARGB(30, 0, 0, 0);
   var botaoPlay = Color.fromARGB(255, 239, 242, 247);
+  
+  int _percentual = 0;
+
+  void changePeople(){
+    setState(() {
+      _percentual += 10;
+    });
+  }
+
+  FaceRelogio updateRelogio(){
+    //setState(() {
+    return FaceRelogio(_percentual);
+    //});
+    
+  }
 
   HomeScreen() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -146,10 +166,12 @@ class HomeScreen extends StatelessWidget {
                                   fontSize: 70,
                                   color: fonteBotaoRelogio),
                             ),
-                            onTap: (){},
+                            onTap: (){
+                                changePeople();
+                            },
                           ),
                           Container(
-                            child: CustomPaint(painter: FaceRelogio(15)),
+                            child: CustomPaint(painter: updateRelogio()),
                           ),
                         ],
                       )),

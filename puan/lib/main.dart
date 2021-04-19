@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromARGB(255, 255, 255, 255)
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: Home(),
     );
   }
 }
