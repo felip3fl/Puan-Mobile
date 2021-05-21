@@ -16,20 +16,20 @@ class HomeScreen extends State<Home> {
   var bordaBotaoPlay1 = Color.fromARGB(30, 0, 0, 0);
   var bordaBotaoPlay2 = Color.fromARGB(30, 0, 0, 0);
   var botaoPlay = Color.fromARGB(255, 239, 242, 247);
-  
+
   int _percentual = 0;
 
-  void changePeople(){
+  void changePeople() {
     setState(() {
       _percentual += 10;
+      if (_percentual > 100) _percentual = 0;
     });
   }
 
-  FaceRelogio updateRelogio(){
+  FaceRelogio updateRelogio() {
     //setState(() {
     return FaceRelogio(_percentual);
     //});
-    
   }
 
   HomeScreen() {
@@ -50,10 +50,10 @@ class HomeScreen extends State<Home> {
             padding: EdgeInsets.fromLTRB(30, 55, 30, 0),
             child: Column(
               children: <Widget>[
-                // Stack(children: <Widget>[
-                //   CustomPaint(painter: FaceCisculo()),
-                //   CustomPaint(painter: FaceCisculo2()),
-                // ]),
+                Stack(children: <Widget>[
+                  CustomPaint(painter: FaceCisculo()),
+                  CustomPaint(painter: FaceCisculo2()),
+                ]),
                 Container(
                   child: Row(
                     children: <Widget>[
@@ -166,8 +166,8 @@ class HomeScreen extends State<Home> {
                                   fontSize: 70,
                                   color: fonteBotaoRelogio),
                             ),
-                            onTap: (){
-                                changePeople();
+                            onTap: () {
+                              changePeople();
                             },
                           ),
                           Container(
@@ -232,7 +232,7 @@ class FaceCisculo extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(FaceRelogio oldDelegate) => false;
+  bool shouldRepaint(FaceCisculo oldDelegate) => false;
 }
 
 class FaceCisculo2 extends CustomPainter {
@@ -250,5 +250,5 @@ class FaceCisculo2 extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(FaceRelogio oldDelegate) => false;
+  bool shouldRepaint(FaceCisculo2 oldDelegate) => false;
 }
