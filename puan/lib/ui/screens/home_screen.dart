@@ -1,7 +1,14 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/services.dart';
 import 'package:puan/ui/widgets/FaceRelogio.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:intl/intl.dart';
+
+import 'clock.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,7 +24,11 @@ class HomeScreen extends State<Home> {
   var bordaBotaoPlay2 = Color.fromARGB(30, 0, 0, 0);
   var botaoPlay = Color.fromARGB(255, 239, 242, 247);
 
+  final pointControll = new PointControll();
+
   int _percentual = 0;
+
+  //List this.clock.markTime = [];
 
   void changePeople() {
     setState(() {
@@ -168,6 +179,7 @@ class HomeScreen extends State<Home> {
                             ),
                             onTap: () {
                               changePeople();
+                              _addTodo();
                             },
                           ),
                           Container(
@@ -176,25 +188,33 @@ class HomeScreen extends State<Home> {
                         ],
                       )),
                 ),
-                Text(
-                  "Inicio: 08:10",
-                  style: TextStyle(
-                      decoration: TextDecoration.none,
-                      fontFamily: 'WorkSans-Thin',
-                      fontSize: 36,
-                      color: fonteBotaoRelogio),
-                ),
-                Text(
-                  "Fim: 08:10",
-                  style: TextStyle(
-                      decoration: TextDecoration.none,
-                      fontFamily: 'WorkSans-Thin',
-                      fontSize: 36,
-                      color: fonteBotaoRelogio),
+                Container(
+                  height: 220.0,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: this.pointControll.markTime.length,
+                    itemBuilder: (context, index) {
+                      return Text(
+                        this.pointControll.markTime[index]["title"].toString() +
+                            ": " +
+                            this
+                                .pointControll
+                                .markTime[index]["time"]
+                                .toString(),
+                        style: TextStyle(
+                            decoration: TextDecoration.none,
+                            fontFamily: 'WorkSans-Thin',
+                            fontSize: 32,
+                            color: fonteBotaoRelogio),
+                        textAlign: TextAlign.center,
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
           ),
+
           Spacer(),
           // BottomNavigationBar(
           //     fixedColor: Colors.black,
@@ -214,6 +234,33 @@ class HomeScreen extends State<Home> {
           //           backgroundColor: Colors.red)
           //     ])
         ]));
+  }
+
+  Future<File> _getFile() async {
+    final directory = await getApplicationDocumentsDirectory();
+    return File("${directory.path}/data.json");
+  }
+
+  Future<File> _saveData() async {
+    String data = json.encode(this.pointControll.markTime);
+    final file = await _getFile();
+    return file.writeAsString(data);
+  }
+
+  Future<String> _readData() async {
+    try {
+      final file = await _getFile();
+      return file.readAsString();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  void _addTodo() {
+    setState(() {
+      pointControll.markPoint();
+      _saveData();
+    });
   }
 }
 
