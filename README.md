@@ -42,8 +42,10 @@ Use o ``Visual Studio 2022`` para usar este projeto
 &nbsp;&nbsp;<img width="90" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg">
 </p>
  
-- ``ASP.NET 6``
-- ``Paradigma de orientação a objetos``
+- ``Flutter``
+- ``Dart``
+- ``Visual Studio Code``
+- ``Android 12, 13``
 
 <BR>  
   
