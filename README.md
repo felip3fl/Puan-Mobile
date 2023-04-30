@@ -4,12 +4,6 @@
 <img src="https://img.shields.io/badge/PROJECT%20VERSION-0.0.0-blue">
 </h3>
 
-<h4 align="center"> 
-    :construction:  Projeto usado para estudo, forever em construção  :construction:
-</h4>
-
-<BR>
-
 ## 📃 Descrição do projeto
 
 <p align="justify">
@@ -41,12 +35,11 @@ Use o ``Visual Studio 2022`` para usar este projeto
   
 ## ✔️ Técnicas e tecnologias utilizadas
 <p align="justify">
-<img width="90" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg">
-&nbsp;&nbsp;<img width="90"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg">
+<img width="90" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg">
+&nbsp;&nbsp;<img width="90"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg">
 &nbsp;&nbsp;<img width="90" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-&nbsp;&nbsp;<img width="90"  src="https://raw.githubusercontent.com/felip3fl/felip3fl/1a6a66b6a143aab342cf2df18f56d8c1c7e6c8fb/Material/Icon/visual-studio.svg">
 &nbsp;&nbsp;<img width="90" src="https://raw.githubusercontent.com/felip3fl/felip3fl/1a6a66b6a143aab342cf2df18f56d8c1c7e6c8fb/Material/Icon/vscode.svg">
-&nbsp;&nbsp;<img width="90"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg">
+&nbsp;&nbsp;<img width="90" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg">
 </p>
  
 - ``ASP.NET 6``
