@@ -14,7 +14,7 @@
 
 <BR>
 
-<img src="https://github.com/felip3fl/FL_PUAN_MOBILE/blob/main/material/prototype/prototype_v2.fw.png?raw=true" width="30%" align="center">
+<img src="https://github.com/felip3fl/FL_PUAN_MOBILE/blob/main/material/prototype/prototype_v2.fw.png?raw=true" width="50%" align="center">
 
 <BR>
 
