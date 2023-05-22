@@ -9,7 +9,7 @@
 ## 📃 Descrição do projeto
 
 <p align="justify">
- Projeto desenvolvido usando C# com o proposito de estudo
+ Projeto desenvolvido usando Dart
 </p>
 
 <BR>
@@ -20,9 +20,9 @@
 
 ## :hammer: Funcionalidades do projeto
 
-- `Funcionalidade 1`: ???
-- `Funcionalidade 2`: ???
-- `Funcionalidade 3`: ???
+- `Funcionalidade 1`: Iniciar contagem do tempo de trabalho
+- `Funcionalidade 2`: Notificar encerramento do trabalho
+- `Funcionalidade 3`: Adicionar evento no Google Calendar
 
 <BR>
   
@@ -34,7 +34,7 @@ Todo código fonte se encontra na pasta **source**
   
 ## 🛠️ Abrir e rodar o projeto
 
-Use o ``Visual Studio 2022`` para usar este projeto
+Use o ``Visual Studio Code`` para usar este projeto
 
 
 <BR>  
