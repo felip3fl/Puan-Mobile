@@ -9,13 +9,13 @@
 ## 📃 Descrição do projeto
 
 <p align="justify">
- Projeto desenvolvido usando Dart
+ Projeto desenvolvido usando Dart, para uso pessoal. Objetivo desse projeto é um controle de ponto eletrônico que seja um visual amigavel e ajude o inicio e fim de jornada de trabalho.
 </p>
 
-<BR>
-
-<img src="https://github.com/felip3fl/FL_PUAN_MOBILE/blob/main/material/prototype/prototype_v2.fw.png?raw=true" width="50%" align="center">
-
+<h3 align="center">
+<img src="https://github.com/felip3fl/FL_PUAN_MOBILE/blob/main/material/prototype/prototype_v2.fw.png?raw=true" width="40%" align="center">
+ </h3>
+  
 <BR>
 
 ## :hammer: Funcionalidades do projeto
